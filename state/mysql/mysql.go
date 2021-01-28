@@ -439,6 +439,10 @@ func (m *MySQL) BulkGet(req []state.GetRequest) (bool, []state.BulkGetResponse, 
 	return false, nil, nil
 }
 
+func (m *MySQL) Watch(req *state.GetRequest, handler func(msg *state.GetResponse) error) error {
+	return nil
+}
+
 // Close implements io.Closer
 func (m *MySQL) Close() error {
 	if m.db != nil {
